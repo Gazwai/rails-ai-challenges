@@ -1,9 +1,14 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
+puts "Cleaning DB..."
+User.destroy_all
+Challenge.destroy_all
 
+puts "Creating user(s)"
+user = User.create(email: 'doug.berkley@lewagon.org', password: '123123')
+user = User.create(email: 'gary.yau@lewagon.org', password: '123123')
+user = User.create(email: 'noemi.ashizuka@lewagon.org', password: '123123')
+puts "... created #{User.count} users."
 
+puts "Creating challeng(es)"
 Challenge.create(
   name: "HTML Generator",
   module: "Ruby",
@@ -161,3 +166,4 @@ Write a seed that populates your database with 5 users who each have between 5 a
 Don’t spend too much time trying to use the API. Remember that our goal here is to work with associations.
   HEREDOC
 )
+puts "... created #{Challenge.count} challenges."
