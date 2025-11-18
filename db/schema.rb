@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_11_17_162506) do
+ActiveRecord::Schema[7.1].define(version: 2025_11_18_003020) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,13 +20,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_17_162506) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "system_prompt"
   end
 
   create_table "chats", force: :cascade do |t|
     t.string "title"
-    t.bigint "challenge_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "challenge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["challenge_id"], name: "index_chats_on_challenge_id"
