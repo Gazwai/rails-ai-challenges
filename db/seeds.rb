@@ -3,7 +3,7 @@ User.destroy_all
 Challenge.destroy_all
 
 puts "Creating user(s)"
-user = User.create(email: 'doug.berkley@lewagon.org', password: '123123')
+user = User.create(email: 'douglas.berkley@lewagon.org', password: '123123')
 user = User.create(email: 'gary.yau@lewagon.org', password: '123123')
 user = User.create(email: 'noemi.ashizuka@lewagon.org', password: '123123')
 puts "... created #{User.count} users."
