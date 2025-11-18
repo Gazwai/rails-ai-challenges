@@ -1,2 +1,21 @@
-<h1><%= @challenge.name %></h1>
-<%= raw(render_markdown(@challenge.content)) %>
+<div class="row">
+  <div class="col">
+    <h1><%= @challenge.name %></h1>
+    <%= raw(render_markdown(@challenge.content)) %>
+  </div>
+  <div class="col-md-3">
+    <h2>Chats</h2>
+    <div class="mb-4">
+      <% if @challenge.chats.any? %>
+        <ul>
+          <% @challenge.chats.each do |chat| %>
+            <li><%= link_to chat.title, chat_path(chat) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        There are no chats yet.
+      <% end %>
+    </div>
+    <%= button_to "New chat", challenge_chats_path(@challenge), class: "btn btn-primary" %>
+  </div>
+</div>
